@@ -13,12 +13,18 @@ public class PlayerMovement : MonoBehaviour
     public bool isRunning = false;
     public bool crouched = false;
     public bool prone = false;
-    public bool canControl
+    public bool CanControl
     {
         get
         {
-            if (HUD.Instance.conversationScreen.activeSelf) return false;
-            return true;
+            if (HUD.Instance.conversationScreen.activeSelf)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
     }
     public Animator anim;
@@ -52,7 +58,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!canControl) return;
+        if (!CanControl)
+        {
+            return;
+        }
         Interaction();
         grounded = Physics.CheckSphere(transform.position + (transform.up * (body.radius - 0.1f)), body.radius, groundMask);
         isRunning = Input.GetKey(KeyCode.LeftShift);
@@ -97,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                //crouched = false;
+                // crouched = false;
                 prone = true;
 
             }
@@ -152,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         velocity.x = move.x;
         velocity.z = move.z;
 
-        if(move.normalized != Vector3.zero)
+        if (move.normalized != Vector3.zero)
             transform.rotation = Quaternion.LookRotation(move.normalized, Vector3.up);
     }
 
