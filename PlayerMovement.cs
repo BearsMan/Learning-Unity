@@ -71,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
             if (crouched)
             {
                 TryUncrouch();
-                
             }
             else
             {
@@ -108,7 +107,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 // crouched = false;
                 prone = true;
-
             }
         }
        
@@ -121,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * Physics.gravity.y);
         }
-        
+
         UpdateAnimations();
         UpdateHeight();
     }
