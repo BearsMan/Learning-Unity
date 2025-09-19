@@ -33,7 +33,7 @@ public class PlayerMovement : MonoBehaviour
     public CharacterController body;
     public Transform cameraSystem;
     public Transform head;
-    public float currentSpeed
+    public float CurrentSpeed
     {
         get
         {
@@ -151,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
 
         Vector3 move = cameraSystem.forward * z + cameraSystem.right * x;
 
-        body.Move(move * currentSpeed * Time.deltaTime);
+        body.Move(move * CurrentSpeed * Time.deltaTime);
 
         velocity.y += Physics.gravity.y * Time.deltaTime;
         body.Move(velocity * Time.deltaTime);
